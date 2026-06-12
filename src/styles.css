@@ -1,0 +1,182 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── Zivah Styles Design System ────────────────────────────────
+   Luxury fashion palette: warm ivory canvas, deep ink, gold accent.
+   Display: Cormorant Garamond (serif). Body: DM Sans.
+   All colors use oklch. Never use ad-hoc hex utilities in JSX.
+   ───────────────────────────────────────────────────────────── */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 10px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-warm: var(--surface-warm);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  --shadow-soft: 0 2px 12px oklch(0 0 0 / 0.06);
+  --shadow-elevated: 0 18px 50px oklch(0 0 0 / 0.10);
+  --shadow-lux: 0 30px 80px -20px oklch(0.30 0.04 60 / 0.30);
+
+  --gradient-gold: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
+  --gradient-fade: linear-gradient(180deg, transparent 0%, oklch(0 0 0 / 0.55) 100%);
+}
+
+:root {
+  --radius: 4px;
+
+  /* surfaces */
+  --background: oklch(0.975 0.006 80);          /* warm ivory canvas */
+  --canvas: oklch(0.975 0.006 80);
+  --surface: oklch(1 0 0);
+  --surface-warm: oklch(0.955 0.010 80);
+
+  /* ink */
+  --foreground: oklch(0.18 0.005 60);
+  --ink: oklch(0.18 0.005 60);
+  --ink-soft: oklch(0.36 0.008 60);
+  --ink-muted: oklch(0.55 0.010 70);
+
+  /* cards / popovers */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.005 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.005 60);
+
+  /* brand */
+  --primary: oklch(0.20 0.008 60);              /* near-black for primary CTAs */
+  --primary-foreground: oklch(0.98 0.005 80);
+  --secondary: oklch(0.955 0.010 80);
+  --secondary-foreground: oklch(0.20 0.008 60);
+
+  --muted: oklch(0.955 0.010 80);
+  --muted-foreground: oklch(0.50 0.010 70);
+
+  --accent: oklch(0.72 0.085 75);                /* gold */
+  --accent-foreground: oklch(0.18 0.005 60);
+  --accent-soft: oklch(0.88 0.045 80);
+
+  --destructive: oklch(0.58 0.20 27);
+  --destructive-foreground: oklch(0.98 0.005 80);
+  --success: oklch(0.62 0.14 150);
+
+  --border: oklch(0.91 0.010 80);
+  --border-strong: oklch(0.82 0.012 75);
+  --input: oklch(0.91 0.010 80);
+  --ring: oklch(0.72 0.085 75);
+}
+
+.dark {
+  --background: oklch(0.16 0.008 60);
+  --canvas: oklch(0.16 0.008 60);
+  --surface: oklch(0.20 0.008 60);
+  --surface-warm: oklch(0.22 0.010 65);
+  --foreground: oklch(0.96 0.006 80);
+  --ink: oklch(0.96 0.006 80);
+  --ink-soft: oklch(0.80 0.008 75);
+  --ink-muted: oklch(0.62 0.010 70);
+  --card: oklch(0.20 0.008 60);
+  --card-foreground: oklch(0.96 0.006 80);
+  --popover: oklch(0.20 0.008 60);
+  --popover-foreground: oklch(0.96 0.006 80);
+  --primary: oklch(0.96 0.006 80);
+  --primary-foreground: oklch(0.18 0.005 60);
+  --secondary: oklch(0.26 0.010 60);
+  --secondary-foreground: oklch(0.96 0.006 80);
+  --muted: oklch(0.26 0.010 60);
+  --muted-foreground: oklch(0.72 0.010 70);
+  --accent: oklch(0.78 0.10 78);
+  --accent-foreground: oklch(0.18 0.005 60);
+  --accent-soft: oklch(0.55 0.07 78);
+  --border: oklch(1 0 0 / 0.10);
+  --border-strong: oklch(1 0 0 / 0.18);
+  --input: oklch(1 0 0 / 0.14);
+  --ring: oklch(0.78 0.10 78);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+  ::selection { background: var(--color-accent-soft); color: var(--color-ink); }
+}
+
+/* Hide scrollbar utility for horizontal scrollers */
+@utility no-scrollbar {
+  &::-webkit-scrollbar { display: none; }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Eyebrow micro-label used across the site */
+@utility eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  font-weight: 500;
+}
+
+@utility marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes ken-burns {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.18); }
+}
+
+@utility ken-burns {
+  animation: ken-burns 9s ease-out forwards;
+}
